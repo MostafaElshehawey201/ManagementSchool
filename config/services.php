@@ -18,6 +18,12 @@ return [
         'token' => env('POSTMARK_TOKEN'),
     ],
 
+    "twilio" =>[
+        "sid" => env("TWILIO_SID"),
+        "auth" => env("TWILIO_AUTH_TOKEN"),
+        "phone" => env("TWILIO_PHONE"),
+    ],
+
     'resend' => [
         'key' => env('RESEND_KEY'),
     ],

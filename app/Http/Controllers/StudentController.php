@@ -15,7 +15,7 @@ class StudentController extends Controller
         $Departments = Department::all();
         return view("Students.PageCreateNewStudent" ,["Teachers"=>$Teachers , "Departments" => $Departments]);
     }
-    public function CreateNewStudent(Request $request , MailCreateNewStudent $MailCreateNewStudent){
+    public function CreateNewStudent(Request $request){
         $request->validate([
             "name" => "required|string",
             "email" => "required|email",
@@ -27,7 +27,6 @@ class StudentController extends Controller
         CreateNewStudentFactory::create($request->all());
         $email = $request->email;
         $name = $request->name;
-        $MailCreateNewStudent->MailCreateNewStudent($email , $name);
         return back()->with("success" , "تم تسجيل بيانات الطالب بنجاح");
     }
 

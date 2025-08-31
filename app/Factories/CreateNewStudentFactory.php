@@ -1,6 +1,7 @@
 <?php
 namespace App\Factories;
 
+use App\Events\EventCreateNewStudent;
 use App\Models\Student;
 use App\Models\User;
 
@@ -29,6 +30,7 @@ use App\Models\User;
                     "address"=>$requestDataFactory["address"],
                     "degree"=>$requestDataFactory['degree'],
                 ]);
+                event(new EventCreateNewStudent($requestDataFactory));
             }
         }
     }
