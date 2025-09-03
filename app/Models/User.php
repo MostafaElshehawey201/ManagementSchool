@@ -48,6 +48,10 @@ class User extends Authenticatable
         return $this->hasMany(Department::class);
     }
 
+    public function SubjectVideos(){
+        return $this->hasMany(Subject::class);
+    }
+
     protected $hidden = [
         'password',
         'remember_token',

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\EventCreateNewStudent;
 use App\Models\Teacher;
 use App\Models\Department;
 use Illuminate\Http\Request;
@@ -25,9 +26,8 @@ class StudentController extends Controller
             "teacher_id" =>"required",
         ]);
         CreateNewStudentFactory::create($request->all());
-        $email = $request->email;
-        $name = $request->name;
         return back()->with("success" , "تم تسجيل بيانات الطالب بنجاح");
+
     }
 
     

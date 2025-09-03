@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\ClassYearController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
 use App\Models\Department;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +25,16 @@ Route::controller(TeacherController::class)->group(function(){
 Route::controller(StudentController::class)->group(function(){
     Route::get("PageCreateNewStudent" , "PageCreateNewStudent")->name("PageCreateNewStudent");
     Route::any("CreateNewStudent" ,"CreateNewStudent")->name("CreateNewStudent");
+});
+
+Route::controller(ClassYearController::class)->group(function(){
+    Route::get("PageCreateClassYear" , "PageCreateClassYear")->name("PageCreateClassYear");
+    Route::any("CreateNewClassYear" , "CreateNewClassYear")->name("CreateNewClassYear");
+});
+
+Route::controller(SubjectController::class)->group(function(){
+    Route::get("PageCreateNewSubject" , "PageCreateNewSubject")->name("PageCreateNewSubject");
+    Route::post("CreateNewSubject" ,"CreateNewSubject")->name("CreateNewSubject");
 });
 
 
